@@ -6,7 +6,7 @@ const HttpStatus = require('http-status');
 const db = require('../../server/services/db');
 const logger = require('winston');
 
-async function findAll(req, res) {
+async function getPosts(req, res) {
   db
     .list({ include_docs: true })
     .then(async ({ rows }) => {
@@ -22,7 +22,7 @@ async function findAll(req, res) {
 async function add(req, res) {
   const post = req.swagger.params.post.value;
   db
-    .insert(post)
+    .insert({ ...post, created_time: new Date() })
     .then(async response => {
       logger.info(`inserted document ${JSON.stringify(post)}`);
       return res
@@ -35,6 +35,6 @@ async function add(req, res) {
 }
 
 module.exports = {
-  findAll,
+  getPosts,
   add
 };

@@ -1,5 +1,6 @@
 # web-back
 
+This app exposes backend REST API.
 
 ## Deploy
 
@@ -11,3 +12,4 @@ $ ibmcloud login
 $ ibmcloud target --cf -r eu-gb
 $ ibmcloud cf push web-back
 ```
+

@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   version: "0.0.1"
   title: web-back
-host: web-back.eu-gb.cf.appdomain.cloud:8080
+host: web-back.eu-gb.cf.appdomain.cloud
 basePath: /v1/api
 schemes:
   - https
@@ -15,7 +15,7 @@ paths:
     x-swagger-router-controller: posts
     get:
       description: gets all posts
-      operationId: findAll
+      operationId: getPosts
       responses:
         "200":
           description: Returned existing user profile
@@ -37,9 +37,11 @@ paths:
             $ref: "#/definitions/PostModel"
       responses:
         "200":
-          description: Returned existing user profile
+          description: Return existing posts
           schema:
-            $ref: "#/definitions/PostResponse"
+            type: array
+            items:
+              $ref: "#/definitions/PostResponse"
         default:
           description: Error
           schema:
@@ -56,10 +58,22 @@ definitions:
     properties:
       title:
         type: string
+      author:
+        type: string
+      imageUrl:
+        type: string
+      content:
+        type: string
   PostResponse:
     type: object
     properties:
       id:
         type: string
       title:
+        type: string
+      author:
+        type: string
+      imageUrl:
+        type: string
+      content:
         type: string
