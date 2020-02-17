@@ -1,0 +1,24 @@
+{
+  "name": "web-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "lint": "./node_modules/.bin/eslint . --fix"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@cloudant/cloudant": "^4.2.3",
+    "cfenv": "^1.2.2",
+    "express": "^4.17.1",
+    "http-status": "^1.4.2",
+    "morgan": "^1.9.1",
+    "swagger-express-mw": "^0.7.0",
+    "swagger-tools": "^0.10.4",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {}
+}
