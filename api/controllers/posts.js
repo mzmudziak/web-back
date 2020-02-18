@@ -20,14 +20,15 @@ async function getPosts(req, res) {
 }
 
 async function add(req, res) {
-  const post = req.swagger.params.post.value;
+  const post = { ...req.swagger.params.post.value, created_time: new Date() };
+
   db
-    .insert({ ...post, created_time: new Date() })
+    .insert(post)
     .then(async response => {
       logger.info(`inserted document ${JSON.stringify(post)}`);
       return res
         .status(HttpStatus.OK)
-        .json(response);
+        .json({ ...response, ...post });
     })
     .catch(e => {
       return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: e });
