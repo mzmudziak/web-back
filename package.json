@@ -13,7 +13,7 @@
   "dependencies": {
     "@cloudant/cloudant": "^4.2.3",
     "cfenv": "^1.2.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http-status": "^1.4.2",
     "morgan": "^1.9.1",
     "swagger-express-mw": "^0.7.0",
